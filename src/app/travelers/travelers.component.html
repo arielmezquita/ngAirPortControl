@@ -1,0 +1,65 @@
+<body class="bg-light">
+
+    <div class="container">
+      <div class="py-5 text-center">
+        <img class="d-block mx-auto mb-4" src="../../assets/img/traverlers-icon.webp" alt="" width="72" height="72">
+        <h2>Travelers form</h2>
+      </div>
+
+      <div class="row">
+        <div class="col-md-6 order-md-1">
+          <h4 class="mb-3">Traveler information</h4>
+          <hr class="mb-4">
+          <form class="needs-validation" novalidate>
+            <div class="row">
+              <div class="col-md-6 mb-3">
+                <label for="firstName">First name</label>
+                <input type="text" class="form-control" id="firstName" placeholder="" value="" required [(ngModel)]="formDataTraveler.firstname" [ngModelOptions]="{standalone: true}">
+                <div class="invalid-feedback">
+                  Valid first name is required.
+                </div>
+              </div>
+              <div class="col-md-6 mb-3">
+                <label for="lastName">Last name</label>
+                <input type="text" class="form-control" id="lastName" placeholder="" value="" required [(ngModel)]="formDataTraveler.lastname" [ngModelOptions]="{standalone: true}">
+                <div class="invalid-feedback">
+                  Valid last name is required.
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6 mb-2">
+                  <label for="email">Email</label>
+                  <input type="email" class="form-control" id="email" placeholder="you@example.com" [(ngModel)]="formDataTraveler.email" [ngModelOptions]="{standalone: true}">
+                  <div class="invalid-feedback">
+                  Please enter a valid email address.
+                </div>
+              </div>
+
+                <div class="col-md-3 mb-2">
+                  <label for="state">Age</label>
+                  <select class="custom-select d-block w-100" id="state" required [(ngModel)]="formDataTraveler.age" [ngModelOptions]="{standalone: true}">
+                    <option value="">Choose...</option>
+                    <option *ngFor="let in of counter(99); let i = index">{{ i }}</option>
+                  </select>
+                </div>
+              </div>
+            <hr class="mb-4">
+
+              <div class="mb-3">
+                <label for="country">Flight Selections</label>
+                <select class="custom-select d-block w-100" id="country" required >
+                  <option value="">Choose...</option>
+                  <option *ngFor="let flights of flightavailable">{{ flights.origin }} - {{ flights.destination }} - {{ flights.timedeparts }}</option>
+                </select>
+                <div class="invalid-feedback">
+                  Please select a valid flight.
+                </div>
+              </div>
+            <button class="btn btn-dark btn-lg btn-block" type="submit" (click)="travelersRequest()">Check In</button>
+          </form>
+        </div>
+      </div>
+    </div>        
+</body>

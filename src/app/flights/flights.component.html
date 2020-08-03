@@ -1,0 +1,77 @@
+<body class="bg-light">
+
+    <div class="container">
+      <div class="py-5 text-center">
+        <img class="d-block mx-auto mb-4" src="../../assets/img/flight-icon.png" alt="" width="72" height="72">
+        <h2>Flight form</h2>
+      </div>
+
+      <div class="row">
+        <div class="col-md-6 order-md-1">
+          <h4 class="mb-3">Flight information</h4>
+          <hr class="mb-4">
+          <form class="needs-validation" novalidate>
+            <div class="row">
+              <div class="col-md-6 mb-3">
+                <label for="origin">From</label>
+                <select class="custom-select d-block w-100" id="origin" required [(ngModel)]="formDataFlight.origin" [ngModelOptions]="{standalone: true}">
+                    <option>Origin...</option>
+                    <option *ngFor="let airport of destinationList" value="{{ airport }}">{{ airport }}</option> 
+                  </select>
+              </div>
+              <div class="col-md-6 mb-3">
+                <label for="destination">To</label>
+                <select class="custom-select d-block w-100" id="destination" required [(ngModel)]="formDataFlight.destination" [ngModelOptions]="{standalone: true}">
+                    <option>Destination...</option>
+                    <option *ngFor="let airport of destinationList" value="{{ airport }}">{{ airport }}</option> 
+                  </select>
+              </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6 mb-2">
+                  <label for="datetime">Time Departs</label>
+                  <select class="custom-select d-block w-100" id="timedeparts" required [(ngModel)]="formDataFlight.timedeparts" [ngModelOptions]="{standalone: true}">
+                    <option>Destination...</option>
+                    <option *ngFor="let timeDeparts of flightimeDepartsList" value="{{ timeDeparts }}">{{ timeDeparts }}</option> 
+                  </select>
+                </div>
+            </div>
+            <hr class="mb-4">
+            <button class="btn btn-dark btn-lg btn-block" type="submit" (click)="flightsRequest()">Save</button>
+          </form>
+        </div>
+
+        <div class="col-md-6 order-md-2 mb-4">
+          <h4 class="d-flex justify-content-between align-items-center mb-3">
+            <span class="text-muted">Fligths Available</span>
+            <span class="badge badge-secondary badge-pill">3</span>
+          </h4> 
+          <ul class="list-group mb-3">
+            <!-- <li class="list-group-item d-flex justify-content-between lh-condensed">
+              <div *ngFor="let flightdetails of flightavailable" value="{{ flightdetails }}">
+                <h6 class="my-0">Origin: {{ flightdetails.origin }}</h6>
+                <small class="text-muted">Destination: {{ flightdetails.destination }}</small>
+              </div>
+              <span class="text-muted">Departs Time: {{ flightdetails.timedeparts }}</span>
+            </li>  -->
+            <li class="list-group-item d-flex justify-content-between lh-condensed">
+              <div>
+                <h6 class="my-0">Fligth</h6>
+                <small class="text-muted">Brief description</small>
+              </div>
+              <span class="text-muted">time</span>
+            </li>
+            <li class="list-group-item d-flex justify-content-between lh-condensed">
+              <div>
+                <h6 class="my-0">Fligth</h6>
+                <small class="text-muted">Brief description</small>
+              </div>
+              <span class="text-muted">time</span>
+            </li>
+          </ul>
+        </div> 
+
+      </div>
+    </div>        
+</body>
