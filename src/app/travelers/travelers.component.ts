@@ -8,9 +8,7 @@ import { Router } from '@angular/router';
 })
 export class TravelersComponent implements OnInit {
 
-
-
-  counter(i: number) {
+counter(i: number) {
     return new Array(i);
 }
 
@@ -26,13 +24,11 @@ export class TravelersComponent implements OnInit {
   constructor(private router: Router) { }
 
   ngOnInit(): void {
-
-
-
+    this.flightavailable =  [ JSON.parse(localStorage.getItem("flights"))];
   }
 
   getflights(){
-    this.flightavailable =  JSON.parse(localStorage.getItem("flights"));
+
   }    
 
   travelersRequest(){
@@ -40,12 +36,14 @@ export class TravelersComponent implements OnInit {
     const lastname = this.formDataTraveler.lastname;
     const email = this.formDataTraveler.email;
     const age = this.formDataTraveler.age;
+    const flight = this.formDataTraveler.flight;
 
     const dataToSend = {
       firstname: firstname,
       lastname: lastname,
       email: email,
       age: age,
+      flight: flight
     }
 
     console.log(dataToSend);

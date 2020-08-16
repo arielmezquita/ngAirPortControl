@@ -49,9 +49,9 @@
 
               <div class="mb-3">
                 <label for="country">Flight Selections</label>
-                <select class="custom-select d-block w-100" id="country" required >
+                <select class="custom-select d-block w-100" id="country" required [(ngModel)]="formDataTraveler.flight" [ngModelOptions]="{standalone: true}" >
                   <option value="">Choose...</option>
-                  <option *ngFor="let flights of flightavailable">{{ flights.origin }} - {{ flights.destination }} - {{ flights.timedeparts }}</option>
+                  <option *ngFor="let flights of flightavailable" >{{ flights.origin }} - {{ flights.destination }} - {{ flights.timedeparts }}</option>
                 </select>
                 <div class="invalid-feedback">
                   Please select a valid flight.
